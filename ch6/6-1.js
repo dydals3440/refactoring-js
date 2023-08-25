@@ -11,14 +11,16 @@ function printBanner() {
   console.log('***********************');
 }
 
+// 배열같은 경우 고차원 api를 이용하여 절차지향적으로 작성하지않고, 함수형 프로그래밍으로 작성하기!
 function calculateOutstanding(invoice) {
-  // ouststanding 보다는 반환하는 것은 result라고 명명
-  let result = 0;
-  for (const o of invoice.orders) {
-    result += o.amount;
-  }
-  // outstanding을 반환해주어야 다른곳에서 undefined가 아닌 이 리턴을 사용가능
-  return result;
+  return invoice.orders.reduce((sum, order) => (sum += order.amount), 0);
+  // // ouststanding 보다는 반환하는 것은 result라고 명명
+  // let result = 0;
+  // for (const o of invoice.orders) {
+  //   result += o.amount;
+  // }
+  // // outstanding을 반환해주어야 다른곳에서 undefined가 아닌 이 리턴을 사용가능
+  // return result;
 }
 
 function recordDueDate(invoice) {
