@@ -48,3 +48,5 @@ export class GoodOrder {
     return Math.min(this.quantity * this.itemPrice * 0.1, 100);
   }
 }
+
+// 긴 표현식이 잇다면 단계별로 나누어서 추출하는게 좋음!
