@@ -35,12 +35,12 @@ function parseCommand(args) {
   };
 }
 
-function countOrders({ fileName, countReadyOnly }) {
-  const rawData = fs.readFileSync(fileName);
+function countOrders(command) {
+  const rawData = fs.readFileSync(command.fileName);
   const orders = JSON.parse(rawData);
-  const filtered = countReadyOnly
-    ? orders.filter((order) => order.status === 'ready')
-    : orders;
-  // 반복되는 console.log(줄이기)
-  console.log(filtered.length);
+  if (command.countReadyOnly) {
+    console.log(orders.filter((order) => order.status === 'ready').length);
+  } else {
+    console.log(orders.length);
+  }
 }

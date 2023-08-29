@@ -14,7 +14,7 @@ function run(args) {
   // 주문의 개수를 세는 역할을 한다고 한눈에 이해 가능!
   countOrders(command);
   // 한줄로 깔끔하게 작성해도됨
-  // countOrders(parseCommand(args));
+  countOrders(parseCommand(args));
 }
 
 // parseCommand 라는 함수를 만들어줌
@@ -29,18 +29,20 @@ function parseCommand(args) {
     throw new Error('파일이 존재하지 않습니다');
   }
 
+  const countReadyOnly = args.includes('-r');
+
   return {
     fileName,
-    countReadyOnly: args.includes('-r'),
+    countReadyOnly,
   };
 }
 
-function countOrders({ fileName, countReadyOnly }) {
-  const rawData = fs.readFileSync(fileName);
+function countOrders(command) {
+  const rawData = fs.readFileSync(command.fileName);
   const orders = JSON.parse(rawData);
-  const filtered = countReadyOnly
-    ? orders.filter((order) => order.status === 'ready')
-    : orders;
-  // 반복되는 console.log(줄이기)
-  console.log(filtered.length);
+  if (command.countReadyOnly) {
+    console.log(orders.filter((order) => order.status === 'ready').length);
+  } else {
+    console.log(orders.length);
+  }
 }
