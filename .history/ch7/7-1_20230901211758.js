@@ -7,7 +7,6 @@ class Organization {
   #name;
   #country;
   constructor(name, country) {
-    this.#data = data;
     this.#name = name;
     this.#country = country;
   }
@@ -30,13 +29,6 @@ class Organization {
   // organization과 관련된 함수를 아래에 적어주면됨!
 
   // 혹시라도 get/set 한 데이터를 외부에 전달해야하는 경우라면,
-  get rawData() {
-    // 위에다 this.#name, this.#country이렇게해서 각각리턴해줘도되지만, 그냥 this.#data로 정의하고 ... 스프레드 연산자를 통해, 새로운 객체로 만들어서, 외부에서 수정해도, 내가 갖고있는 데이터에는 영향이 없게 불변성을 유지해야함! (get만 사용시)
-    return { ...this.#data }; // 얕은복사 (데이터를 빙글 돌면서, 그 안에 중첩된 객체들도 하나씩 새로운 객체로 만들기 원한다면 lodash에서 제공하는 cloneDeep을 이용!)
-
-    // set을 사용할 경우는 아래와 같이 리턴하는게 좋다. (왜냐하면, set: data를 건드는게 없기 떄문)
-    // return {name: this.name, country: this.country}
-  }
 }
 
 const organization1 = new Organization('Acme Gooseberries', 'GB');
