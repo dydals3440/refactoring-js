@@ -21,7 +21,6 @@ class Person {
   }
 }
 
-// 굳이, 별다른 기능이 없으면, 그냥 별도의 클래스로 분리했을떄 얻을 이점이 없으므로, 그냥 하나로 만들면됨!
 // export class Department {
 //   #manager;
 //   #chargeCode;
