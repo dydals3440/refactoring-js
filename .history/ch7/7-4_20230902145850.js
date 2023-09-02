@@ -16,6 +16,6 @@ class Order {
   }
 
   get price() {
-    return this.basePrice * this.discountFactor;
+    return this.basePrice * this.sdiscountFactor;
   }
 }

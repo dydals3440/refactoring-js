@@ -26,7 +26,6 @@ class Priority {
     if (Priority.legalValues().includes(value)) {
       this.#value = value;
     } else {
-      // 생성자안에서 에러를 던지는 것은 좋은 방법이 아님(보안에 취약)
       throw new Error(`${value} is invalid for Priority`);
     }
   }

@@ -19,14 +19,12 @@ export class Order {
 }
 
 // TS에서 Enum으로 쉽게해줌 조금더 심오하게 활용성 높인 코드임.
-// 우선순위라는 클래스를 두면서, 관련된것을 여기에 묶어놓음!
 class Priority {
   #value; // inner private value
   constructor(value) {
     if (Priority.legalValues().includes(value)) {
       this.#value = value;
     } else {
-      // 생성자안에서 에러를 던지는 것은 좋은 방법이 아님(보안에 취약)
       throw new Error(`${value} is invalid for Priority`);
     }
   }
