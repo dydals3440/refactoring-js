@@ -71,10 +71,6 @@ class TelephoneNumber {
 
 // 사용할떄는, 전화번호 클래스가 있는지 없는지 신경안쓰고, 필요한 로직을 분리했다.
 const person = new Person('엘리', '010', '12345678');
-//  별도로
-const telephoneNumber = new TelephoneNumber('010', '12345678');
-telephoneNumber.toString;
-
 console.log(person.name);
 console.log(person.officeAreaCode);
 console.log(person.officeNumber);

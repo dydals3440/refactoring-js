@@ -73,8 +73,6 @@ class TelephoneNumber {
 const person = new Person('엘리', '010', '12345678');
 //  별도로
 const telephoneNumber = new TelephoneNumber('010', '12345678');
-telephoneNumber.toString;
-
 console.log(person.name);
 console.log(person.officeAreaCode);
 console.log(person.officeNumber);
