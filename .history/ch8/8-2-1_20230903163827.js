@@ -7,16 +7,16 @@ export class Customer {
   #contract;
   constructor(name, discountRate) {
     this.#name = name;
-    this.#contract = new CustomerContract(this.dateToday(), discountRate);
+    this.#contract = new CustomerContract(this.dateToday());
   }
 
   becomePreferred() {
-    this.#contract.discountRate += 0.03;
+    this.#discountRate += 0.03;
     // 다른 코드들이 있음...
   }
 
   applyDiscount(amount) {
-    return amount.subtract(amount.multiply(this.#contract.discountRate));
+    return amount.subtract(amount.multiply(this.#discountRate));
   }
 
   dateToday() {
@@ -30,13 +30,5 @@ class CustomerContract {
   constructor(startDate, discoutRate) {
     this.#startDate = startDate;
     this.#discountRate = discountRate;
-  }
-
-  get discountRate() {
-    return this.#discountRate;
-  }
-
-  set discountRate(value) {
-    this.#discountRate = value;
   }
 }

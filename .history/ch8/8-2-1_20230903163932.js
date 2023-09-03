@@ -16,7 +16,7 @@ export class Customer {
   }
 
   applyDiscount(amount) {
-    return amount.subtract(amount.multiply(this.#contract.discountRate));
+    return amount.subtract(amount.multiply(this.#discountRate));
   }
 
   dateToday() {

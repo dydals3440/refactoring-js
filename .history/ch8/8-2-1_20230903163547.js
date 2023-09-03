@@ -3,20 +3,24 @@ export class Customer {
   #name;
   #discountRate;
   // 계약안에 얼마나 할인받을 수 있는지에 대한 정보가 담김!
-  // discountRate은 Customer 클래스 보다, Customer Contract Class에 있는게 더 어울림
   #contract;
   constructor(name, discountRate) {
     this.#name = name;
-    this.#contract = new CustomerContract(this.dateToday(), discountRate);
+    this.#discountRate = discountRate;
+    this.#contract = new CustomerContract(this.dateToday());
+  }
+
+  get discountRate() {
+    return this.#discountRate;
   }
 
   becomePreferred() {
-    this.#contract.discountRate += 0.03;
+    this.#discountRate += 0.03;
     // 다른 코드들이 있음...
   }
 
   applyDiscount(amount) {
-    return amount.subtract(amount.multiply(this.#contract.discountRate));
+    return amount.subtract(amount.multiply(this.#discountRate));
   }
 
   dateToday() {
@@ -26,17 +30,7 @@ export class Customer {
 
 class CustomerContract {
   #startDate;
-  #discountRate;
-  constructor(startDate, discoutRate) {
+  constructor(startDate) {
     this.#startDate = startDate;
-    this.#discountRate = discountRate;
-  }
-
-  get discountRate() {
-    return this.#discountRate;
-  }
-
-  set discountRate(value) {
-    this.#discountRate = value;
   }
 }
