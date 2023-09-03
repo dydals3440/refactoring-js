@@ -11,7 +11,7 @@ function listRecentPhotos(outStream, photos) {
     .forEach((p) => {
       outStream.write('<div>\n');
       emitPhotoData(outStream, p);
-      outStream.write(`<p>위치!: ${photo.location}</p>\n`);
+      outStream.write(`<p>location: ${photo.location}</p>\n`);
       outStream.write('</div>\n');
     });
 }
