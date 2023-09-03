@@ -31,15 +31,5 @@ export class AccountType {
     return daysOverdrawn <= 7
       ? baseCharge
       : baseCharge + (daysOverdrawn - 7) * 0.85;
-
-    // 아래버전은 별로 if 중첩문은 별로임 (조건문이 짧은거 먼저 리턴해버리기!)
-    // if (this.isPremium) {
-    //   const baseCharge = 10;
-    //   if (daysOverdrawn <= 7) {
-    //     return baseCharge;
-    //   } else {
-    //     return baseCharge + (daysOverdrawn - 7) * 0.85;
-    //   }
-    // } else return daysOverdrawn * 1.75;
   }
 }
