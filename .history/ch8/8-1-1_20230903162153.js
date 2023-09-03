@@ -5,7 +5,7 @@ export function trackSummary(points) {
   const pace = time / 60 / distance;
   return {
     time,
-    distance,
+    distance: distance,
     pace: pace,
   };
 }

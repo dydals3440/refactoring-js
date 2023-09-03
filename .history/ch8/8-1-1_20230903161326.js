@@ -1,27 +1,29 @@
 // 함수안의 중첩함수(별로 좋지않음) =>
 export function trackSummary(points) {
-  const time = calculateTime();
-  const distance = calculateDistance(points);
-  const pace = time / 60 / distance;
+  const totalTime = calculateTime();
+  const totalDistance = calculateDistance();
+  const pace = totalTime / 60 / totalDistance;
   return {
-    time,
-    distance,
+    time: totalTime,
+    distance: totalDistance,
     pace: pace,
   };
-}
 
-// 유틸리티들은 외부로 빼놓음
-
-function calculateTime() {
-  return 10000;
-}
-
-function calculateDistance(points) {
-  let result = 0;
-  for (let i = 1; i < points.length; i++) {
-    result += distance(points[i - 1], points[i]);
+  function calculateDistance() {
+    let result = 0;
+    for (let i = 1; i < points.length; i++) {
+      result += distance(points[i - 1], points[i]);
+    }
+    return result;
   }
-  return result;
+
+  function radians(degrees) {
+    return (degrees * Math.PI) / 180;
+  }
+
+  function calculateTime() {
+    return 10000;
+  }
 }
 
 // 외부에 있으면 충분히 재사용할 수 있음.
@@ -37,10 +39,6 @@ function distance(p1, p2) {
       Math.pow(Math.sin(dLon / 2), 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return EARTH_RADIUS * c;
-}
-
-function radians(degrees) {
-  return (degrees * Math.PI) / 180;
 }
 
 const newYork = {

@@ -1,16 +1,14 @@
 // 함수안의 중첩함수(별로 좋지않음) =>
 export function trackSummary(points) {
-  const time = calculateTime();
-  const distance = calculateDistance(points);
-  const pace = time / 60 / distance;
+  const totalTime = calculateTime();
+  const totalDistance = calculateDistance(points);
+  const pace = totalTime / 60 / totalDistance;
   return {
-    time,
-    distance,
+    time: totalTime,
+    distance: totalDistance,
     pace: pace,
   };
 }
-
-// 유틸리티들은 외부로 빼놓음
 
 function calculateTime() {
   return 10000;
