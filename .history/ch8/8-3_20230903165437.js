@@ -18,7 +18,6 @@ export function photoDiv(photo) {
 
 function emitPhotoData(aPhoto) {
   const result = [];
-  console.log(aPhoto);
   result.push(`<p>title: ${person.photo.title}</p>`);
   result.push(`<p>location: ${aPhoto.location}</p>`);
   result.push(`<p>date: ${aPhoto.date.toDateString()}</p>`);
@@ -28,5 +27,3 @@ function emitPhotoData(aPhoto) {
 function renderPhoto(aPhoto) {
   return '';
 }
-
-console.log(renderPerson('Kim'));
