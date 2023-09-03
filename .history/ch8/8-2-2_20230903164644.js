@@ -6,7 +6,6 @@ class Account {
   }
 
   get interestRate() {
-    // 위임을 통해, get을 해줌, get interestRate은 타입안에 있는, InterestRate을 전달하면서 외부에서는 accountType이 있는지 없는지 모르게 사용할 수 있도록 해주면 됨!
     return this._type.interestRate;
   }
 }
