@@ -4,7 +4,6 @@ function renderPerson(outStream, person) {
   outStream.write(`<p>${person.name}</p>\n`);
   renderPhoto(outStream, person.photo);
   emitPhotoData(outStream, person.photo);
-  // 붙여넣어줌, emitPhotoData에서 뺸다음에, 호출하는 사람이 나중에 추가적으로 붙어줄수있도록 변경
   outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
@@ -14,7 +13,6 @@ function listRecentPhotos(outStream, photos) {
     .forEach((p) => {
       outStream.write('<div>\n');
       emitPhotoData(outStream, p);
-      // 위치, 다른 태그를 이용해서 꾸며줌!
       outStream.write(`<p>위치!: ${photo.location}</p>\n`);
       outStream.write('</div>\n');
     });
@@ -23,7 +21,7 @@ function listRecentPhotos(outStream, photos) {
 function emitPhotoData(outStream, photo) {
   outStream.write(`<p>title: ${photo.title}</p>\n`);
   outStream.write(`<p>date: ${photo.date.toDateString()}</p>\n`);
-  // outStream.write(`<p>location: ${photo.location}</p>\n`);
+  outStream.write(`<p>location: ${photo.location}</p>\n`);
 }
 
 function renderPhoto(outStream, aPhoto) {
