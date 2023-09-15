@@ -7,8 +7,8 @@ let charge;
 
 // 예제 2
 function someFunc() {
-  // 삼항 연산자로 변경 (result는 한번 할당되면 변경될 일이 없고, 절대 변경되면 안되므로 const)
-  const result =
+  // 삼항 연산자로 변경
+  let result =
     availableResources.length === 0
       ? createResource()
       : availableResources.pop();
