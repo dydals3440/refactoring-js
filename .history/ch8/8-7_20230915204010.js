@@ -22,9 +22,6 @@ export function reportYoungestAgeAndTotalSalary(people) {
     //   totalSalary += p.salary;
     // }
     // return totalSalary;
-
-    // 함수 api사용
-    return people.reduce((total, p) => (total += p.salary));
   }
   // 함수 선언은 호이스팅이 되므로 위로 올려줘도됨!
   // return `youngestAge: ${youngestAge()}, totalSalary: ${totalSalary()}`;

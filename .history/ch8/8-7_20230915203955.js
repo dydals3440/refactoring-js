@@ -10,21 +10,16 @@ export function reportYoungestAgeAndTotalSalary(people) {
     //   // totalSalary += p.salary;
     // }
     // return youngest;
-
-    // 이게더 현실적인 방법
     return Math.min(...people.map((p) => p.age));
   }
 
   function totalSalary() {
-    // let totalSalary = 0;
-    // // O(n^2)이 아닌 2O(N) 성능의 문제 X
-    // for (const p of people) {
-    //   totalSalary += p.salary;
-    // }
-    // return totalSalary;
-
-    // 함수 api사용
-    return people.reduce((total, p) => (total += p.salary));
+    let totalSalary = 0;
+    // O(n^2)이 아닌 2O(N) 성능의 문제 X
+    for (const p of people) {
+      totalSalary += p.salary;
+    }
+    return totalSalary;
   }
   // 함수 선언은 호이스팅이 되므로 위로 올려줘도됨!
   // return `youngestAge: ${youngestAge()}, totalSalary: ${totalSalary()}`;
